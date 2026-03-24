@@ -1,6 +1,7 @@
 "# Proyecto-II---Innovacion-Tecnologica" 
 ## UNIVERSIDAD ICESI - MIAA
 ![Logo Icesi](icesi.png)
+<img width="242" height="148" alt="icesi" src="https://github.com/user-attachments/assets/2244ac43-8ae7-4252-b648-58af28b38587" />
 
 
 # Proyecto II de IA Aplicada: AGENTES IA PARA LA GESTION DE VULNERABILIDADES
