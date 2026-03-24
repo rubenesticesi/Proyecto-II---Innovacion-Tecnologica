@@ -578,24 +578,7 @@ Este proyecto está siendo desarrollado por los siguientes alumnos de la Maestr�
 | [Rubén Darío Sabogal Urbano](https://github.com/rubenesticesi) | 16704992@u.icesi.edu.co| @rubenesticesi|
 
 ---
-## 🧠 Métodos Utilizados
 
-- Estadística inferencial 
-- Aprendizaje automático (Machine Learning)  
-- Visualización de datos  
-- Modelado predictivo  
-- Análisis exploratorio  
-- ETL (Extracción, Transformación y Carga de datos)
-
----
-
-## 🧰 Tecnologías
-
-- **Lenguajes:** Python 
-- **Herramientas:** Pandas, NumPy, Jupyter Notebooks
-- **Otros:** GitHub
-
----
 
 ## 📓 Cuadernos del Proyecto (Notebooks)
 
