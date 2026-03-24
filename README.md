@@ -1,3 +1,6 @@
+
+<img width="242" height="148" alt="icesi" src="https://github.com/user-attachments/assets/b3ffc5f8-7b76-46c8-a3d1-cefdf70a0ac6" />
+
 # Agente de IA para Gestión de Vulnerabilidades
 
 <p align="center">
@@ -7,7 +10,6 @@
   <img src="https://img.shields.io/badge/dominios-IT%20%7C%20OT%20%7C%20Cloud%20%7C%20AppSec-purple" alt="Dominios">
   <img src="https://img.shields.io/badge/uso-priorizaci%C3%B3n%20de%20vulnerabilidades-critical" alt="Uso">
 </p>
-<img width="242" height="148" alt="icesi" src="https://github.com/user-attachments/assets/a566545c-df27-4b77-8d11-1270d0bcce42" />
 
 Sistema orientado a la **priorización, análisis, contextualización y recomendación de remediación de vulnerabilidades** en entornos **IT, OT, Cloud y AppSec**, combinando:
 
