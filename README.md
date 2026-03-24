@@ -66,5 +66,5 @@ Este proyecto se distribuye bajo licencia [MIT](https://opensource.org/licenses/
 
 ## 🏫 Universidad Icesi – Maestría en Inteligencia Artificial Aplicada
 
-Proyecto académico desarrollado en el marco del curso **Proyecto I – Innovación Tecnológica**.  
+Proyecto académico desarrollado en el marco del curso **Proyecto II – Innovación Tecnológica**.  
 **Cali, Colombia – 2026**
