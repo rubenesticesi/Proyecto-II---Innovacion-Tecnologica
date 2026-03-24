@@ -1,10 +1,14 @@
-"# Proyecto-II---Innovacion-Tecnologica" 
-## UNIVERSIDAD ICESI - MIAA
-<img width="242" height="148" alt="icesi" src="https://github.com/user-attachments/assets/2244ac43-8ae7-4252-b648-58af28b38587" />
-
 # Agente de IA para Gestión de Vulnerabilidades
 
-Sistema orientado a la **priorización, análisis y recomendación de remediación de vulnerabilidades** en entornos **IT, OT, Cloud y AppSec**, usando un enfoque combinado de:
+<p align="center">
+  <img src="https://img.shields.io/badge/estado-en%20dise%C3%B1o-blue" alt="Estado">
+  <img src="https://img.shields.io/badge/python-3.10%2B-green" alt="Python">
+  <img src="https://img.shields.io/badge/arquitectura-RAG%20%2B%20Rules%20%2B%20LLM-orange" alt="Arquitectura">
+  <img src="https://img.shields.io/badge/dominios-IT%20%7C%20OT%20%7C%20Cloud%20%7C%20AppSec-purple" alt="Dominios">
+  <img src="https://img.shields.io/badge/uso-priorizaci%C3%B3n%20de%20vulnerabilidades-critical" alt="Uso">
+</p>
+
+Sistema orientado a la **priorización, análisis, contextualización y recomendación de remediación de vulnerabilidades** en entornos **IT, OT, Cloud y AppSec**, combinando:
 
 - **scoring determinístico explicable**
 - **enriquecimiento contextual**
@@ -13,43 +17,71 @@ Sistema orientado a la **priorización, análisis y recomendación de remediaci�
 
 ---
 
-## 1. Propósito del proyecto
+## Tabla de contenido
 
-Este proyecto busca construir un **Agente de IA para Gestión de Vulnerabilidades** capaz de:
+- [1. Visión general](#1-visión-general)
+- [2. Problema que resuelve](#2-problema-que-resuelve)
+- [3. Objetivos](#3-objetivos)
+- [4. Alcance](#4-alcance)
+- [5. Arquitectura de referencia](#5-arquitectura-de-referencia)
+- [6. Arquitectura en Mermaid](#6-arquitectura-en-mermaid)
+- [7. Componentes del repositorio](#7-componentes-del-repositorio)
+- [8. Modelo canónico de datos](#8-modelo-canónico-de-datos)
+- [9. Lógica de priorización](#9-lógica-de-priorización)
+- [10. Estructura RAG recomendada](#10-estructura-rag-recomendada)
+- [11. Flujo operativo](#11-flujo-operativo)
+- [12. Instalación](#12-instalación)
+- [13. Ejecución básica](#13-ejecución-básica)
+- [14. Integración futura](#14-integración-futura)
+- [15. Casos de uso](#15-casos-de-uso)
+- [16. Roadmap](#16-roadmap)
+- [17. Métricas de éxito](#17-métricas-de-éxito)
+- [18. Seguridad y gobierno](#18-seguridad-y-gobierno)
+- [19. Estructura sugerida del proyecto](#19-estructura-sugerida-del-proyecto)
+- [20. Contribución](#20-contribución)
+- [21. Licencia](#21-licencia)
+- [22. Resumen ejecutivo](#22-resumen-ejecutivo)
 
-- ingerir hallazgos desde múltiples herramientas de seguridad,
-- normalizar la información en un modelo canónico,
-- enriquecer cada hallazgo con contexto de negocio y amenaza,
+---
+
+## 1. Visión general
+
+Este proyecto define la base de un **Agente de IA para Gestión de Vulnerabilidades** capaz de:
+
+- recibir hallazgos desde múltiples herramientas de seguridad,
+- normalizar la información en un modelo unificado,
+- enriquecer cada hallazgo con señales de amenaza y contexto del activo,
 - calcular un **riesgo operativo real**,
-- recomendar acciones de remediación o mitigación,
-- y generar salidas útiles para SOC, infraestructura, OT, AppSec, gestión de cambios y dirección.
+- recomendar acciones de remediación, mitigación o aceptación,
+- y producir salidas útiles para **SOC, infraestructura, OT, AppSec, CAB y dirección**.
 
-La iniciativa está pensada para evolucionar desde un **motor de priorización asistido por IA** hasta una plataforma de **orquestación inteligente de vulnerabilidades**.
+La propuesta no busca reemplazar inicialmente a los scanners o plataformas RBVM existentes. Su propósito es servir como una **capa inteligente de priorización y decisión**.
 
 ---
 
 ## 2. Problema que resuelve
 
-En la mayoría de organizaciones, la gestión de vulnerabilidades presenta estos problemas:
+Los programas tradicionales de gestión de vulnerabilidades presentan limitaciones comunes:
 
-- gran volumen de hallazgos sin contexto suficiente,
-- priorización basada solo en **CVSS**, lo cual no representa el riesgo real,
-- separación entre detección, priorización y remediación,
-- baja integración entre herramientas IT, OT, cloud y desarrollo,
-- dificultad para traducir datos técnicos a decisiones operativas y ejecutivas.
+- exceso de hallazgos sin contexto suficiente,
+- priorización basada solo en **CVSS**,
+- baja correlación entre severidad, explotación real y criticidad del negocio,
+- escasa integración entre dominios IT, OT, cloud y desarrollo,
+- dificultad para traducir datos técnicos a decisiones operativas y ejecutivas,
+- y baja trazabilidad entre detección, priorización, remediación y validación.
 
-Este proyecto responde a ese problema con una arquitectura que prioriza por:
+Este proyecto corrige ese enfoque mediante una priorización basada en:
 
-- **severidad técnica**
-- **probabilidad de explotación**
-- **explotación activa conocida**
-- **criticidad del activo**
-- **exposición a internet**
-- **reachability**
-- **ruta de ataque**
-- **disponibilidad de parche**
-- **antigüedad del hallazgo**
-- **controles compensatorios**
+- severidad técnica,
+- probabilidad de explotación,
+- explotación activa conocida,
+- criticidad del activo,
+- exposición a internet,
+- reachability,
+- presencia en rutas de ataque,
+- disponibilidad de parche,
+- antigüedad del hallazgo,
+- y controles compensatorios.
 
 ---
 
@@ -64,7 +96,7 @@ Diseñar e implementar un agente de IA para apoyar la gestión integral de vulne
 - Implementar un **motor de scoring explicable**.
 - Diseñar prompts y estructura RAG para enriquecer el razonamiento del agente.
 - Producir una salida auditable para operación, gestión y dirección.
-- Preparar la solución para integración futura con scanners, ITSM, CMDB y plataformas de parcheo.
+- Preparar la solución para integración con scanners, CMDB, ITSM, patching y plataformas OT/AppSec.
 
 ---
 
@@ -80,96 +112,96 @@ El proyecto cubre los siguientes dominios:
 - **Patch & Remediation**
 - **Exposure Management / RBVM**
 
-No reemplaza inicialmente las herramientas existentes de detección; su función es servir como capa de:
+El alcance actual corresponde a una **base operativa inicial** compuesta por:
 
-1. **normalización**
-2. **enriquecimiento**
-3. **priorización**
-4. **explicación**
-5. **recomendación**
+- modelo canónico,
+- base de conocimiento,
+- catálogos comparativos,
+- reglas de scoring,
+- diseño de prompts,
+- estructura RAG,
+- y datasets de ejemplo.
 
 ---
 
-## 5. Arquitectura conceptual
+## 5. Arquitectura de referencia
 
-```text
-+------------------------+
-| Fuentes de hallazgos   |
-|------------------------|
-| Tenable / Qualys       |
-| Rapid7 / Defender      |
-| Wiz / Armis / Claroty  |
-| Snyk / Checkmarx       |
-+-----------+------------+
-            |
-            v
-+------------------------+
-| Capa de Ingesta        |
-|------------------------|
-| conectores / ETL / API |
-+-----------+------------+
-            |
-            v
-+------------------------+
-| Normalización          |
-|------------------------|
-| modelo canónico        |
-| finding / asset / fix  |
-+-----------+------------+
-            |
-            v
-+------------------------+
-| Enriquecimiento        |
-|------------------------|
-| EPSS / KEV / criticidad|
-| exposición / attackpath|
-+-----------+------------+
-            |
-            v
-+------------------------+
-| Motor de scoring       |
-|------------------------|
-| reglas explicables     |
-| risk_score 0-100       |
-+-----------+------------+
-            |
-            v
-+------------------------+
-| LLM + RAG              |
-|------------------------|
-| explicación            |
-| recomendación          |
-| resumen ejecutivo      |
-+-----------+------------+
-            |
-            v
-+------------------------+
-| Integraciones          |
-|------------------------|
-| ITSM / CMDB / SIEM     |
-| Patch / CAB / SOC      |
-+------------------------+
+La arquitectura se organiza en seis capas principales:
+
+1. **Fuentes de hallazgos**  
+   Scanners, plataformas RBVM, CNAPP, AppSec, OT.
+
+2. **Ingesta y normalización**  
+   ETL, APIs, conectores, limpieza y mapeo al modelo canónico.
+
+3. **Enriquecimiento contextual**  
+   EPSS, KEV, criticidad, exposición, reachability, attack path, inventario, dueños de servicio.
+
+4. **Motor de scoring**  
+   Reglas explicables para calcular `risk_score`, `risk_band`, SLA y decisión inicial.
+
+5. **LLM + RAG**  
+   Justificación auditable, recomendación contextual, resumen técnico y ejecutivo.
+
+6. **Integración operativa**  
+   ITSM, CMDB, CAB, patch management, SIEM, dashboards, reportes.
+
+---
+
+## 6. Arquitectura en Mermaid
+
+```mermaid
+flowchart TD
+    A[Fuentes de hallazgos<br/>Tenable / Qualys / Rapid7 / Defender / Wiz / Armis / Claroty / Snyk] --> B[Ingesta y conectores]
+    B --> C[Normalización al modelo canónico]
+    C --> D[Enriquecimiento contextual<br/>EPSS / KEV / criticidad / exposición / attack path]
+    D --> E[Motor de scoring explicable]
+    E --> F[LLM + RAG<br/>explicación y recomendación]
+    F --> G[Salidas operativas<br/>ITSM / CAB / SOC / Patch / Reportes]
+
+    C --> H[(Base de conocimiento)]
+    H --> F
+    D --> H
 ```
 
 ---
 
-## 6. Componentes actuales del repositorio
+## 7. Componentes del repositorio
 
-- `Base_conocimiento_agente_vulnerabilidades.json`
-- `Catalogo_herramientas_vulnerabilidades.csv`
-- `Catalogo_metricas_vulnerabilidades.csv`
-- `Ejemplo_scoring_agente.csv`
-- `Diseno_prompts_agente_vulnerabilidades.md`
-- `Esquema_RAG_agente_vulnerabilidades.md`
-- `reglas_scoring_agente.py`
-- `ejemplo_findings.json`
-- `ejemplo_assets.json`
+- `Base_conocimiento_agente_vulnerabilidades.json`  
+  Base estructurada con entidades, taxonomía RAG y reglas resumidas.
+
+- `Catalogo_herramientas_vulnerabilidades.csv`  
+  Catálogo comparativo de herramientas líderes por dominio.
+
+- `Catalogo_metricas_vulnerabilidades.csv`  
+  Catálogo de métricas clave para priorización y seguimiento.
+
+- `Ejemplo_scoring_agente.csv`  
+  Dataset de ejemplo con resultados de scoring.
+
+- `Diseno_prompts_agente_vulnerabilidades.md`  
+  Diseño de prompts del sistema y de entrada para razonamiento operativo.
+
+- `Esquema_RAG_agente_vulnerabilidades.md`  
+  Recomendaciones para chunking, metadatos y colecciones RAG.
+
+- `reglas_scoring_agente.py`  
+  Motor inicial de scoring explicable.
+
+- `ejemplo_findings.json`  
+  Hallazgos de ejemplo para pruebas.
+
+- `ejemplo_assets.json`  
+  Activos de ejemplo para pruebas.
 
 ---
 
-## 7. Modelo canónico de datos
+## 8. Modelo canónico de datos
 
-### VulnerabilityFinding
+### Entidad `VulnerabilityFinding`
+Campos esperados:
+
 - `finding_id`
 - `source_tool`
 - `cve_id`
@@ -187,7 +219,9 @@ No reemplaza inicialmente las herramientas existentes de detección; su función
 - `finding_status`
 - `recommended_action`
 
-### Asset
+### Entidad `Asset`
+Campos esperados:
+
 - `asset_id`
 - `hostname`
 - `asset_type`
@@ -200,7 +234,9 @@ No reemplaza inicialmente las herramientas existentes de detección; su función
 - `ot_it_flag`
 - `compensating_controls`
 
-### RemediationAction
+### Entidad `RemediationAction`
+Campos esperados:
+
 - `action_id`
 - `finding_id`
 - `action_type`
@@ -214,20 +250,20 @@ No reemplaza inicialmente las herramientas existentes de detección; su función
 
 ---
 
-## 8. Enfoque de scoring
+## 9. Lógica de priorización
 
-El modelo actual usa una escala de **0 a 100** e incorpora factores como:
+El modelo actual calcula un `risk_score` de **0 a 100** considerando:
 
 - **CVSS**
 - **EPSS**
 - **KEV**
-- **exposición a internet**
-- **reachability**
-- **presencia en ruta de ataque**
-- **criticidad del activo**
-- **antigüedad del hallazgo**
-- **disponibilidad de parche**
-- **controles compensatorios**
+- exposición a internet,
+- reachability,
+- presencia en ruta de ataque,
+- criticidad del activo,
+- antigüedad del hallazgo,
+- disponibilidad de parche,
+- controles compensatorios.
 
 ### Bandas de riesgo
 - `critical`
@@ -241,9 +277,15 @@ El modelo actual usa una escala de **0 a 100** e incorpora factores como:
 - `schedule_fix`
 - `monitor_or_accept`
 
+### Principios de decisión
+- No priorizar únicamente por CVSS.
+- Dar mayor peso a **KEV**, **EPSS alto**, **exposición externa** y **criticidad**.
+- En OT, considerar continuidad operativa y mitigaciones compensatorias.
+- Mantener explicabilidad y trazabilidad en cada recomendación.
+
 ---
 
-## 9. Estructura RAG recomendada
+## 10. Estructura RAG recomendada
 
 Colecciones sugeridas:
 
@@ -266,28 +308,75 @@ Metadatos recomendados:
 - `review_date`
 - `owner_team`
 
+### Consultas objetivo
+- ¿Cómo priorizar una CVE con EPSS alto pero sin KEV?
+- ¿Qué hacer si un PLC crítico no tiene parche?
+- ¿Qué SLA aplicar a una vulnerabilidad crítica en un activo expuesto?
+- ¿Qué métricas deben mostrarse a operación y a dirección?
+
 ---
 
-## 10. Flujo operativo esperado
+## 11. Flujo operativo
 
 1. Recibir hallazgos desde scanners o plataformas RBVM.
-2. Mapearlos al modelo canónico.
-3. Cruce con inventario, criticidad y datos contextuales.
-4. Enriquecer con señales como `EPSS`, `KEV` y exposición.
+2. Mapear los hallazgos al modelo canónico.
+3. Correlacionar con inventario, criticidad y contexto operativo.
+4. Enriquecer con señales como `EPSS`, `KEV`, exposición y attack path.
 5. Calcular `risk_score`.
-6. Invocar LLM para resumir, justificar y recomendar.
-7. Integrar la salida con ITSM, ticketing, CMDB, patching y reporting ejecutivo.
+6. Invocar LLM para:
+   - justificar,
+   - recomendar,
+   - resumir,
+   - sugerir equipo responsable,
+   - y escalar si corresponde.
+7. Enviar salida a ITSM, CMDB, CAB, patching y dashboard.
 
 ---
 
-## 11. Ejemplo de uso
+## 12. Instalación
 
-### Ejecutar el script de scoring
+### Requisitos
+- Python 3.10 o superior
+- `venv` o entorno equivalente
+- Git
+
+### Clonar el repositorio
+```bash
+git clone https://github.com/tu-organizacion/tu-repositorio.git
+cd tu-repositorio
+```
+
+### Crear entorno virtual
+```bash
+python -m venv .venv
+```
+
+### Activar entorno virtual
+
+#### Linux / macOS
+```bash
+source .venv/bin/activate
+```
+
+#### Windows PowerShell
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+### Instalar dependencias base
+En la versión actual, los artefactos principales usan librerías estándar de Python.  
+Cuando el proyecto crezca, se recomienda incluir un `requirements.txt` o `pyproject.toml`.
+
+---
+
+## 13. Ejecución básica
+
+### Probar el motor de scoring
 ```bash
 python reglas_scoring_agente.py
 ```
 
-### Resultado esperado
+### Salida esperada
 El script devuelve una estructura con:
 
 - `risk_score`
@@ -296,53 +385,65 @@ El script devuelve una estructura con:
 - `target_sla_days`
 - `reasons`
 
----
-
-## 12. Casos de uso prioritarios
-
-- Priorización de vulnerabilidades críticas en activos expuestos.
-- Gestión diferencial de vulnerabilidades IT vs OT.
-- Identificación de hallazgos con explotación activa conocida.
-- Recomendación de mitigaciones cuando no existe parche.
-- Resumen ejecutivo para CISO / Gerencia.
-- Apoyo a mesa de remediación y gestión de cambios.
-- Preparación de backlog accionable por equipo técnico.
+### Uso sugerido
+1. Cargar `ejemplo_findings.json`
+2. Cargar `ejemplo_assets.json`
+3. Enriquecer con inventario real y señales externas
+4. Ejecutar scoring
+5. Enviar el resultado al flujo LLM/RAG
 
 ---
 
-## 13. Herramientas objetivo para integración futura
+## 14. Integración futura
 
-### VM / RBVM
+### Fuentes objetivo
 - Tenable
 - Qualys
 - Rapid7
 - Microsoft Defender Vulnerability Management
 - Cisco Vulnerability Management
-
-### Cloud / Exposure
 - Wiz
-- Microsoft Security Exposure Management
-- Tenable Exposure Management
-
-### OT / CPS
 - Armis
 - Claroty
-- Nozomi Networks
-
-### AppSec / DevSecOps
+- Nozomi
 - Snyk
 - Checkmarx
 - Veracode
 - GitHub Advanced Security
-
-### Patch / Remediation
 - BigFix
 - Automox
 - Tanium
 
+### Plataformas operativas
+- ITSM
+- CMDB
+- SIEM
+- sistemas de cambio / CAB
+- patch management
+- dashboards ejecutivos y operativos
+
+### Integraciones técnicas sugeridas
+- REST APIs
+- ETL programado
+- colas/eventos
+- conectores a vector DB
+- conectores a LLM APIs
+
 ---
 
-## 14. Roadmap propuesto
+## 15. Casos de uso
+
+- Priorización de vulnerabilidades críticas en activos expuestos.
+- Gestión diferencial de vulnerabilidades IT vs OT.
+- Identificación de hallazgos con explotación activa conocida.
+- Recomendación de mitigaciones cuando no existe parche.
+- Soporte a CAB en remediaciones con indisponibilidad.
+- Generación de backlog accionable por equipo técnico.
+- Resumen ejecutivo para CISO, SOC Manager o Gerencia.
+
+---
+
+## 16. Roadmap
 
 ### Fase 1
 - Modelo canónico
@@ -371,75 +472,83 @@ El script devuelve una estructura con:
 
 ---
 
-## 15. Métricas de éxito del proyecto
+## 17. Métricas de éxito
 
 - reducción del backlog crítico,
 - disminución del MTTR,
 - aumento del porcentaje de cierre dentro de SLA,
 - mejor cobertura de priorización contextual,
 - menor ruido operativo,
-- mejor trazabilidad de decisiones.
+- mejor trazabilidad de decisiones,
+- reducción del riesgo residual.
 
 ---
 
-## 16. Requisitos técnicos recomendados
+## 18. Seguridad y gobierno
 
-- Python 3.10+
-- entorno virtual (`venv`)
-- bibliotecas de manejo JSON/CSV
-- futura integración con APIs REST, motores vectoriales, LLM APIs, bases documentales y sistemas ITSM/CMDB
+Este proyecto debe operar bajo principios de gobierno y seguridad:
 
----
-
-## 17. Consideraciones de seguridad
-
-- no exponer datos sensibles del inventario,
-- proteger credenciales de integraciones,
+- no exponer datos sensibles de inventario,
+- proteger credenciales y secretos,
 - versionar reglas y políticas,
-- registrar trazabilidad de decisiones,
-- mantener override humano,
-- diferenciar claramente **riesgo** de **severidad**.
+- mantener trazabilidad de decisiones,
+- permitir override humano,
+- diferenciar claramente **severidad** de **riesgo**,
+- registrar excepciones y aceptaciones de riesgo.
 
 ---
 
-## 18. Contribución
+## 19. Estructura sugerida del proyecto
 
-Las futuras contribuciones deberían enfocarse en:
+```text
+.
+├── README.md
+├── Base_conocimiento_agente_vulnerabilidades.json
+├── Catalogo_herramientas_vulnerabilidades.csv
+├── Catalogo_metricas_vulnerabilidades.csv
+├── Ejemplo_scoring_agente.csv
+├── Diseno_prompts_agente_vulnerabilidades.md
+├── Esquema_RAG_agente_vulnerabilidades.md
+├── reglas_scoring_agente.py
+├── ejemplo_findings.json
+├── ejemplo_assets.json
+├── docs/
+├── data/
+├── src/
+└── tests/
+```
+
+---
+
+## 20. Contribución
+
+Las futuras contribuciones pueden enfocarse en:
 
 - nuevos conectores,
 - mejoras del scoring,
 - playbooks por tecnología,
 - taxonomías RAG,
 - plantillas de remediación,
+- dashboards,
 - reportes ejecutivos.
+
+### Flujo sugerido
+1. Crear rama de trabajo
+2. Implementar cambio
+3. Documentar impacto
+4. Probar con datasets de ejemplo
+5. Enviar pull request
 
 ---
 
-## 19. Licencia
+## 21. Licencia
 
 Definir según el modelo institucional del proyecto.
 
-Opciones habituales:
+Opciones comunes:
 - MIT
 - Apache 2.0
 - licencia propietaria institucional
-
----
-
-## 20. Autor / contexto del proyecto
-
-Proyecto orientado al diseño de un **Agente de IA para Gestión de Vulnerabilidades**, con aplicabilidad en contextos empresariales donde conviven dominios IT, OT, cloud y desarrollo seguro.
-
----
-
-## 21. Próximos pasos recomendados
-
-- conectar fuentes reales de hallazgos,
-- definir política de criticidad de activos,
-- establecer reglas SLA por dominio,
-- integrar con ITSM,
-- construir dashboard de riesgo,
-- desplegar una primera versión piloto del agente.
 
 ---
 
@@ -447,13 +556,14 @@ Proyecto orientado al diseño de un **Agente de IA para Gestión de Vulnerabilid
 
 Este repositorio constituye la base de un **sistema inteligente de gestión de vulnerabilidades**.
 
-Su valor no está en reemplazar scanners existentes, sino en convertir hallazgos dispersos en **decisiones priorizadas, explicables y accionables**.
+Su valor no está en reemplazar los scanners existentes, sino en convertir hallazgos dispersos en **decisiones priorizadas, explicables y accionables**.
 
 La propuesta combina:
+
 - datos estructurados,
 - reglas transparentes,
 - contexto operacional,
-- capacidades de IA generativa.
+- y capacidades de IA generativa.
 
 El resultado esperado es una gestión de vulnerabilidades más madura, trazable y orientada al riesgo real.
 
