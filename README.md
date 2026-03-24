@@ -1,6 +1,6 @@
 "# Proyecto-II---Innovacion-Tecnologica" 
 ## UNIVERSIDAD ICESI - MIAA
-!(icesi.png)
+[icesi.png]
 <img width="242" height="148" alt="icesi" src="https://github.com/user-attachments/assets/2244ac43-8ae7-4252-b648-58af28b38587" />
 
 
