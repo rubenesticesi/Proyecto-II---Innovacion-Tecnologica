@@ -457,18 +457,6 @@ La propuesta combina:
 
 El resultado esperado es una gestión de vulnerabilidades más madura, trazable y orientada al riesgo real.
 
-# Proyecto II de IA Aplicada: AGENTES IA PARA LA GESTION DE VULNERABILIDADES
-
-Este repositorio contiene el desarrollo del proyecto de Inteligencia Artificial Aplicada de la Maestría, enfocado en los **Agentes IA para la Gestion de Vulnerabilidades**  llevado a cabo en una empresa de servicios de la ciudad de cali.
-
-![SIMAT](SIMAT2.png)
-
-## 🎯 Descripción del Proyecto
-
-El objetivo principal de este proyecto es aplicar técnicas de Ciencia de Datos e Inteligencia Artificial para analizar y predecir trayectorias educativas en la educación primaria de estudiantes diagnosticados con autismo. Buscamos identificar patrones y factores clave que influyen en su proceso de matrícula y permanencia, utilizando como fuente principal los registros anonimizados del SIMAT.
-
----
-
 ## 👨‍💻 Integrantes del Grupo
 
 Este proyecto está siendo desarrollado por los siguientes alumnos de la Maestría:
