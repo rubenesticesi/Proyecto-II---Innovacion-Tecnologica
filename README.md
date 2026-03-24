@@ -3,9 +3,9 @@
 ![Logo Icesi](icesi.png)
 
 
-# Proyecto de IA Aplicada: Predicción de Educación Primaria en Niños con Autismo
+# Proyecto II de IA Aplicada: AGENTES IA PARA LA GESTION DE VULNERABILIDADES
 
-Este repositorio contiene el desarrollo del proyecto de Inteligencia Artificial Aplicada de la Maestría, enfocado en la **Predicción de la Educación Primaria en niños con Autismo** en la etapa escolar, utilizando la base de datos del SIMAT (Sistema de Matrícula Estudiantil de Educación Básica y Media) del año 2025.
+Este repositorio contiene el desarrollo del proyecto de Inteligencia Artificial Aplicada de la Maestría, enfocado en los **Agentes IA para la Gestion de Vulnerabilidades**  llevado a cabo en una empresa de servicios de la ciudad de cali.
 
 ![SIMAT](SIMAT2.png)
 
@@ -67,4 +67,4 @@ Este proyecto se distribuye bajo licencia [MIT](https://opensource.org/licenses/
 ## 🏫 Universidad Icesi – Maestría en Inteligencia Artificial Aplicada
 
 Proyecto académico desarrollado en el marco del curso **Proyecto I – Innovación Tecnológica**.  
-**Cali, Colombia – 2025**
+**Cali, Colombia – 2026**
